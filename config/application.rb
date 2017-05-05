@@ -18,14 +18,17 @@ Bundler.require(*Rails.groups)
 
 module Koken2
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.1
-
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
-
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.generators do |g|
+      g.assets false		# css, jsは生成しない
+      g.helper false		# helperは生成しない
+      g.test_framework :rspec,		# テストフレームワークはrspec
+        fixture: true,
+        fixture_replacement: :factory_girl,		# fixtureはFactoryGirl
+        view_specs: false,		# view, routing, helper, integrationテストは生成しない
+        routing_specs: false,
+        helper_specs: false,
+        integration_tool: false,
+        controller_specs: true		# コントローラーのテストは生成
+    end
   end
 end
