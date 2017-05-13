@@ -13,3 +13,5 @@ LOG:  aborting any active transactions
 LOG:  autovacuum launcher shutting down
 LOG:  shutting down
 LOG:  database system is shut down
+FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 932) running in data directory "/usr/local/var/postgres"?
