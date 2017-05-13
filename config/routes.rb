@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :activities
   resources :wards
   devise_for :guardians
   resources :guardians
