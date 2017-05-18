@@ -1,15 +1,10 @@
 class ActivitiesController < ApplicationController
-  before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :set_activity, only: [:edit, :update, :destroy]
 
   # GET /activities
   # GET /activities.json
   def index
     @activities = Activity.all
-  end
-
-  # GET /activities/1
-  # GET /activities/1.json
-  def show
   end
 
   # GET /activities/new
