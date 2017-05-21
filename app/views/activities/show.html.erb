@@ -17,7 +17,7 @@
 
 <p>
   <strong>Photo:</strong>
-  <%= @activity.photo %>
+  <%= image_tag @activity.photo.thumb.url %>
 </p>
 
 <%= link_to 'Edit', edit_activity_path(@activity) %> |

@@ -12,4 +12,5 @@
 #
 
 class Activity < ApplicationRecord
+  mount_uploader :photo, ActivityPhotoUploader
 end

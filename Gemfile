@@ -57,3 +57,9 @@ gem 'devise', github: 'plataformatec/devise', ref: '83002017'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+
+# Photo Upload
+gem 'carrierwave'
+gem 'rmagick', require: 'RMagick'
+gem 'fog-aws'
+gem 'dotenv-rails'
