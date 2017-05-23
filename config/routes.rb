@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :families, :except => [:index, :show] 
   resources :activities
   resources :wards
   devise_for :guardians

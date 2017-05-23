@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/MustafaZain/less-rails
+  revision: 946213803a5b274260dad17526eb201230e4a761
+  specs:
+    less-rails (2.8.1)
+      actionpack (>= 4.0)
+      less (~> 2.6.0)
+      sprockets (> 2, < 4)
+      tilt
+
+GIT
   remote: https://github.com/plataformatec/devise.git
   revision: 83002017ea4761e30796f3b288be9c7d9b870fcd
   ref: 83002017
@@ -116,11 +126,6 @@ GEM
       multi_json (>= 1.2)
     less (2.6.0)
       commonjs (~> 0.2.7)
-    less-rails (2.8.0)
-      actionpack (>= 4.0)
-      less (~> 2.6.0)
-      sprockets (> 2, < 4)
-      tilt
     libv8 (3.16.14.19)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -255,14 +260,14 @@ DEPENDENCIES
   factory_girl_rails (~> 4.8)
   fog-aws
   jbuilder (~> 2.5)
-  less-rails
+  less-rails!
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
   puma (~> 3.7)
   rails (~> 5.1.0)
   rmagick
   rspec-rails (~> 3.6)
-  sass-rails (~> 5.0)
+  sass-rails (~> 5.0.6)
   spring
   spring-watcher-listen (~> 2.0.0)
   therubyracer
