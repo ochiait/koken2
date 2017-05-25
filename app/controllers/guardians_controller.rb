@@ -1,20 +1,9 @@
 class GuardiansController < ApplicationController
   before_action :set_guardian, only: [:show, :edit, :update, :destroy]
 
-  # GET /guardians
-  # GET /guardians.json
-  def index
-    @guardians = Guardian.all
-  end
-
   # GET /guardians/1
   # GET /guardians/1.json
   def show
-  end
-
-  # GET /guardians/new
-  def new
-    @guardian = Guardian.new
   end
 
   # GET /guardians/1/edit
