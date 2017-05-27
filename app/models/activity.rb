@@ -13,4 +13,6 @@
 
 class Activity < ApplicationRecord
   mount_uploader :photo, ActivityPhotoUploader
+  has_many :visits
+  has_many :contents, through: :visits
 end
