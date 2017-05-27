@@ -17,4 +17,6 @@ class Activity < ApplicationRecord
   mount_uploader :photo, ActivityPhotoUploader
   belongs_to :guardian
   belongs_to :ward
+  has_many :visits
+  has_many :contents, through: :visits
 end
