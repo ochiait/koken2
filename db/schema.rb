@@ -32,12 +32,6 @@ ActiveRecord::Schema.define(version: 20170527063346) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "contents", force: :cascade do |t|
-    t.string "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "families", force: :cascade do |t|
     t.string "name"
     t.string "email"
