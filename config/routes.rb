@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'top#index'
   resources :contents, :except => [:show]
   resources :activities, :except => [:show]
   resources :wards, :except => [:show]
