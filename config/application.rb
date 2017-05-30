@@ -30,5 +30,8 @@ module Koken2
         integration_tool: false,
         controller_specs: true		# コントローラーのテストは生成
     end
+    # タイムゾーンを東京(JST +9:00)に設定
+    config.time_zone = 'Tokyo'
   end
+
 end
