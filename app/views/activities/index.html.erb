@@ -19,7 +19,7 @@
         <td><%= activity.content %></td>
         <td><%= activity.memo %></td>
         <td><%= activity.comment %></td>
-        <td><%= activity.photo %></td>
+        <td><%= image_tag(activity.photo) %></td>
         <td><%= link_to 'Show', activity %></td>
         <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
         <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
