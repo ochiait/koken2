@@ -23,7 +23,7 @@ class WardsController < ApplicationController
 
     respond_to do |format|
       if @ward.save
-        format.html { redirect_to @ward, notice: 'Ward was successfully created.' }
+        format.html { redirect_to wards_path, notice: 'Ward was successfully created.' }
         format.json { render :show, status: :created, location: @ward }
       else
         format.html { render :new }
