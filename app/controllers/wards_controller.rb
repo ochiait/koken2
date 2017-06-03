@@ -37,7 +37,7 @@ class WardsController < ApplicationController
   def update
     respond_to do |format|
       if @ward.update(ward_params)
-        format.html { redirect_to @ward, notice: 'Ward was successfully updated.' }
+        format.html { redirect_to wards_path, notice: 'Ward was successfully updated.' }
         format.json { render :show, status: :ok, location: @ward }
       else
         format.html { render :edit }
