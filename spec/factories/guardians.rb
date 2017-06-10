@@ -15,11 +15,10 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  ward_id                :integer
 #
 
 FactoryGirl.define do
   factory :guardian do
-    
+
   end
 end
