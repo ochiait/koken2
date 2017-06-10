@@ -1,3 +1,6 @@
+# 紹介ページ（構築中）
+http://about.kokennin.com/
+
 # 画面一覧
 
 1. TOP（ログイン前）：[http://about.kokennin.com/demo/index.html](http://about.kokennin.com/demo/index.html)  
