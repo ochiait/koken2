@@ -12,8 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content, id: :activity_content %>
+    <ul>
+    <% @contents.each do |content| %>
+      <li>
+        <%= radio_button_tag(:content_id, content.id) %>
+        <%= label_tag(:activity_content, content.body) %>
+      </li>
+    <% end %>
+  </ul>
   </div>
 
   <div class="field">
