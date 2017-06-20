@@ -1,4 +1,4 @@
-# 紹介ページ（構築中）
+# 紹介ページ
 http://about.kokennin.com/
 
 # 画面一覧
