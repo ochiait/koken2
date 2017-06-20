@@ -19,22 +19,24 @@ class ActivitiesController < ApplicationController
 
   # POST /activities
   # POST /activities.json
-  def create
-    @activity = Activity.new(activity_params)
-    @visit = Visit.new
-    respond_to do |format|
-      if @activity.save
-        @visit.activity_id = @activity.id
-        @visit.content_id = params[:content_id]
-        @visit.save
-        format.html { redirect_to root_path, notice: 'Activity was successfully created.' }
-        format.json { render :show, status: :created, location: @activity }
-      else
-        format.html { render :new }
-        format.json { render json: @activity.errors, status: :unprocessable_entity }
-      end
-    end
 
+  def create
+    ActiveRecord::Base.transaction do
+      @activity = Activity.new(activity_params)
+      @visit = Visit.new
+      respond_to do |format|
+        if @activity.save
+          @visit.activity_id = @activity.id
+          @visit.content_id = params[:content_id]
+          @visit.save!
+          format.html { redirect_to root_path, notice: 'Activity was successfully created.' }
+          format.json { render :show, status: :created, location: @activity }
+        else
+          format.html { render :new }
+          format.json { render json: @activity.errors, status: :unprocessable_entity }
+        end
+      end
+   end
   end
 
   # PATCH/PUT /activities/1
