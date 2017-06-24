@@ -19,4 +19,8 @@ class Activity < ApplicationRecord
   belongs_to :ward
   has_many :visits
   has_many :contents, through: :visits
+
+  def create_with_visit or create_with_visit()
+    #code
+  end
 end
