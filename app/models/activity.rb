@@ -20,7 +20,12 @@ class Activity < ApplicationRecord
   has_many :visits
   has_many :contents, through: :visits
 
-  def create_with_visit or create_with_visit()
-    #code
+  def create_with_visit(visit,content_id)
+   ActiveRecord::Base.transaction do
+    self.save!
+    visit.activity_id = self.id
+    visit.content_id = content_id
+    visit.save!
+   end
   end
 end

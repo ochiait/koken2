@@ -23,17 +23,13 @@ class ActivitiesController < ApplicationController
   def create
       @activity = Activity.new(activity_params)
       @visit = Visit.new
-     ActiveRecord::Base.transaction do
-      @activity.save!
-      @visit.activity_id = @activity.id
-      @visit.content_id = params[:content_id]
-      @visit.save!
-    end  
+      @activity.create_with_visit(@visit,params[:content_id])
       respond_to do |format|
         if @activity.persisted?
           format.html { redirect_to root_path, notice: 'Activity was successfully created.' }
           format.json { render :show, status: :created, location: @activity }
         else
+          @contents = Content.all
           format.html { render :new }
           format.json { render json: @activity.errors, status: :unprocessable_entity }
         end
