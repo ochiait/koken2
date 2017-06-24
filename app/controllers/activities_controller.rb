@@ -23,7 +23,10 @@ class ActivitiesController < ApplicationController
   def create
       @activity = Activity.new(activity_params)
       @visit = Visit.new
+      @activity.guardian_id = @activity.guardian.id
+      @activity.ward_id = @activity.ward.id
       @activity.create_with_visit(@visit,params[:content_id])
+
       respond_to do |format|
         if @activity.persisted?
           format.html { redirect_to root_path, notice: 'Activity was successfully created.' }
