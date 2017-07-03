@@ -9,6 +9,7 @@
 #  sex         :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  guardian_id :integer
 #
 
 FactoryGirl.define do
