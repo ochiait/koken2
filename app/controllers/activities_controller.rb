@@ -10,6 +10,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/new
   def new
     @activity = Activity.new
+    @contents = Content.all
   end
 
   # GET /activities/1/edit
@@ -18,18 +19,21 @@ class ActivitiesController < ApplicationController
 
   # POST /activities
   # POST /activities.json
-  def create
-    @activity = Activity.new(activity_params)
 
-    respond_to do |format|
-      if @activity.save
-        format.html { redirect_to root_path, notice: 'Activity was successfully created.' }
-        format.json { render :show, status: :created, location: @activity }
-      else
-        format.html { render :new }
-        format.json { render json: @activity.errors, status: :unprocessable_entity }
+  def create
+      @activity = Activity.new(activity_params)
+      @visit = Visit.new
+      @activity.create_with_visit(@visit,params[:content_id])
+      respond_to do |format|
+        if @activity.persisted?
+          format.html { redirect_to root_path, notice: 'Activity was successfully created.' }
+          format.json { render :show, status: :created, location: @activity }
+        else
+          @contents = Content.all
+          format.html { render :new }
+          format.json { render json: @activity.errors, status: :unprocessable_entity }
+        end
       end
-    end
   end
 
   # PATCH/PUT /activities/1
@@ -64,6 +68,7 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:content, :memo, :comment, :photo)
+      params.require(:activity).permit(:content, :memo, :comment, :photo, :photo_cache)
     end
+
 end
