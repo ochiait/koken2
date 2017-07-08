@@ -11,6 +11,7 @@
 #  updated_at :datetime         not null
 #  gurdian_id :integer
 #  ward_id    :integer
+#  meetng_at  :datetime
 #
 
 class Activity < ApplicationRecord
