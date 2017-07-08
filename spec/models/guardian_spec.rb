@@ -16,6 +16,22 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  ward_id                :integer
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  company_name           :string
+#  last_name              :string
+#  first_name             :string
+#  last_name_kana         :string
+#  first_name_kana        :string
+#  zip                    :string
+#  pref                   :string
+#  city                   :string
+#  addr1                  :string
+#  addr2                  :string
+#  tel                    :string
+#  mobile                 :string
+#  url                    :string
 #
 
 require 'rails_helper'
