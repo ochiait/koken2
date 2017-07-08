@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20170706075759) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "gurdian_id"
+    t.integer "guardian_id"
     t.integer "ward_id"
     t.datetime "meetng_at"
   end

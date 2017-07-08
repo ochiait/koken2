@@ -21,9 +21,13 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
 
   def create
+    　# activity_paramsの中身はハッシュ（:content, :memo, :comment, :photo, :photo_cache, :ward_id）
       @activity = Activity.new(activity_params)
       @visit = Visit.new
+      # current_guardianはヘルパーメソッドで定義されているので、引数不要
+      @activity.guardian_id = current_guardian.id
       @activity.create_with_visit(@visit,params[:content_id])
+
       respond_to do |format|
         if @activity.persisted?
           format.html { redirect_to root_path, notice: 'Activity was successfully created.' }
@@ -68,7 +72,7 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:content, :memo, :comment, :photo, :photo_cache)
+      params.require(:activity).permit(:content, :memo, :comment, :photo, :photo_cache, :ward_id)
     end
 
 end

@@ -19,6 +19,7 @@
 #  confirmation_token     :string
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
 #  company_name           :string
 #  last_name              :string
 #  first_name             :string
