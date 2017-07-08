@@ -23,8 +23,7 @@ class ActivitiesController < ApplicationController
   def create
       @activity = Activity.new(activity_params)
       @visit = Visit.new
-      @activity.guardian_id = @activity.guardian.id
-      @activity.ward_id = @activity.ward.id
+      @activity.guardian_id = current_guardian.id
       @activity.create_with_visit(@visit,params[:content_id])
 
       respond_to do |format|
@@ -71,7 +70,7 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:content, :memo, :comment, :photo, :photo_cache)
+      params.require(:activity).permit(:content, :memo, :comment, :photo, :photo_cache, :ward_id)
     end
 
 end

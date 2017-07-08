@@ -2,16 +2,16 @@
 #
 # Table name: activities
 #
-#  id         :integer          not null, primary key
-#  content    :string
-#  memo       :string
-#  comment    :string
-#  photo      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  gurdian_id :integer
-#  ward_id    :integer
-#  meetng_at  :datetime
+#  id          :integer          not null, primary key
+#  content     :string
+#  memo        :string
+#  comment     :string
+#  photo       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  guardian_id :integer
+#  ward_id     :integer
+#  meetng_at   :datetime
 #
 
 class Activity < ApplicationRecord
