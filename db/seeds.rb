@@ -7,29 +7,30 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #coding: utf-8
-Content.create(:body => '自宅で本人に面会')
-Content.create(:body => '施設で本人に面会')
-Content.create(:body => '施設で本人に面会')
-Content.create(:body => '自宅の確認')
-Content.create(:body => '通帳記帳')
-Content.create(:body => '支払い処理')
-Content.create(:body => 'その他')
+Content.create!(body: '自宅で本人に面会')
+Content.create!(body: '施設で本人に面会')
+Content.create!(body: '施設で本人に面会')
+Content.create!(body: '自宅の確認')
+Content.create!(body: '通帳記帳')
+Content.create!(body: '支払い処理')
+Content.create!(body: 'その他')
 
-Guardian.create(
-email:"tanaka@hogehoge.com",
-company_name:"田中行政書士事務所",
-last_name:"田中",
-first_name:"一郎",
-last_name_kana:"タナカ",
-first_name_kana:"イチロウ",
-zip:"155-0044",
-pref:"東京都",
-city:"世田谷区",
-addr1:"下北沢",
-addr2:"2-3-4",
-tel:"03-3456-9876",
-mobile:"090-3456-3567",
-url:"http://about.kokennin.com/"
+Guardian.create!(
+	email:'tanaka@hogehoge.com',
+	password:123456,
+	company_name:'田中行政書士事務所',
+	last_name:'田中',
+	first_name:'一郎',
+	last_name_kana:'タナカ',
+	first_name_kana:'イチロウ',
+	zip:'155-0044',
+	pref:'東京都',
+	city:'世田谷区',
+	addr1:'下北沢',
+	addr2:'2-3-4',
+	tel:'03-3456-9876',
+	mobile:'090-3456-3567',
+	url:'http://about.kokennin.com/'
 )
 
 Ward.create(name:"後見人 太郎", address:"東京都世田谷区1-2-3", tel:"03-1234-5678", sex:1, guardian_id:1)
