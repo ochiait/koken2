@@ -21,10 +21,10 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
 
   def create
-    　# activity_paramsの中身はハッシュ（:content, :memo, :comment, :photo, :photo_cache, :ward_id）
+    　# activity_paramsの中身はハッシュ{:content, :memo, :comment, :photo, :photo_cache, :ward_id}
       @activity = Activity.new(activity_params)
       @visit = Visit.new
-      # current_guardianはヘルパーメソッドで定義されているので、引数不要
+      # current_guardianはヘルパーメソッドで定義されている。hoge.name の時の hoge は引数ではなくレシーバという。
       @activity.guardian_id = current_guardian.id
       @activity.create_with_visit(@visit,params[:content_id])
 
