@@ -6,6 +6,11 @@ class GuardiansController < ApplicationController
   def show
   end
 
+# GET /guardians/new
+  def new
+    @guardian = Guardian.new
+  end
+
   # GET /guardians/1/edit
   def edit
   end
