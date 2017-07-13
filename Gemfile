@@ -71,3 +71,6 @@ gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
 gem 'fog-aws'
 gem 'dotenv-rails'
+
+# enumの日本語化
+gem 'enum_help'
