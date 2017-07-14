@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :sex %>
-    <%= form.select :sex, Ward.sexes_i18n.map { |k, v| [t("ward.sex_i18n.#{k}"), v]}, id: :ward_sex %>
+    <%= form.select :sex, Ward.sexes_i18n.invert, id: :ward_sex %>
   </div>
 
   <div class="actions">
