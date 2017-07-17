@@ -37,7 +37,7 @@
     <%= image_tag @activity.photo.thumb.url if @activity.photo? %>
     <%= form.file_field :photo, id: :activity_photo %>
     <%= form.hidden_field :photo_cache %>
-    <%= form.hidden_field :ward_id, value:1 %>
+    <%= form.hidden_field :ward_id, value:@activity.ward_id %>
   </div>
 
   <div class="actions">
