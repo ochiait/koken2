@@ -1,6 +1,6 @@
 <%= form_with url: new_activity_path, method: :get, local: true do |form| %>
    <%= submit_tag "記録する" %>
-   <%= link_to "履歴を見る", activities_path(ward_id: ward.id) %>
+   <%= link_to "履歴を見る", activities_path(ward_id: 1) %>
    <table>
      <thead>
        <tr>
@@ -15,6 +15,7 @@
              <td>
              <%= form.check_box :ward %>
              <%= form.label_tag :ward, ward.name %>
+             <%= form.hidden_field :ward_id, value:ward.id %>
            </td>
          </tr>
        <% end %>

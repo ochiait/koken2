@@ -38,6 +38,7 @@ class ActivitiesController < ApplicationController
           format.json { render json: @activity.errors, status: :unprocessable_entity }
         end
       end
+      
   end
 
   # PATCH/PUT /activities/1
