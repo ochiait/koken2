@@ -11,6 +11,7 @@ class ActivitiesController < ApplicationController
   def new
     @activity = Activity.new
     @contents = Content.all
+    @ward = Ward.find_by(id:params[:ward_id])
   end
 
   # GET /activities/1/edit
@@ -38,7 +39,6 @@ class ActivitiesController < ApplicationController
           format.json { render json: @activity.errors, status: :unprocessable_entity }
         end
       end
-      
   end
 
   # PATCH/PUT /activities/1
