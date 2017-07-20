@@ -4,14 +4,22 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.all
+    if params[:ward_id]
+      @activities = Activity.find_by(ward_id: params[:ward_id])
+    else
+      @activities = Activity.all
+    end
   end
 
   # GET /activities/new
   def new
+    if params[:history]
+      redirect_to activities_path(ward_id: params[:ward_id])
+    else
     @activity = Activity.new
     @contents = Content.all
-    @ward = Ward.find_by(id:params[:ward_id])
+    @ward = Ward.find(params[:ward_id])
+    end
   end
 
   # GET /activities/1/edit

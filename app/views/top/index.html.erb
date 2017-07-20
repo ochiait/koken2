@@ -1,6 +1,6 @@
 <%= form_with url: new_activity_path, method: :get, local: true do |form| %>
    <%= submit_tag "記録する" %>
-   <%= link_to "履歴を見る", activities_path(ward_id: 1) %>
+   <%= submit_tag "履歴を見る", name: "history"%>
    <table>
      <thead>
        <tr>
