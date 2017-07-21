@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:edit, :update, :destroy]
+  before_action :signed_in_guadrian
 
   # GET /activities
   # GET /activities.json
