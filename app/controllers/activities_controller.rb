@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     if params[:ward_id]
-      @activities = Activity.find_by(ward_id: params[:ward_id])
+      @activities = Activity.where(ward_id: params[:ward_id])
     else
       @activities = Activity.all
     end
@@ -13,13 +13,10 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/new
   def new
-    if params[:history]
-      redirect_to activities_path(ward_id: params[:ward_id])
-    else
     @activity = Activity.new
     @contents = Content.all
     @ward = Ward.find(params[:ward_id])
-    end
+    return redirect_to activities_path(ward_id: params[:ward_id]) if params[:history]
   end
 
   # GET /activities/1/edit
