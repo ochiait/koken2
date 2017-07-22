@@ -1,5 +1,5 @@
 class TopController < ApplicationController
-	before_action :signed_in_guadrian
+	before_action :authenticate_guardian!
 
   def index
   end
