@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
   def index
     if params[:ward_id]
       @activities = Activity.where(ward_id: params[:ward_id])
+      @ward = Ward.find(params[:ward_id])
     else
       @activities = Activity.all
     end
@@ -21,6 +22,7 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/1/edit
   def edit
+    @ward = Ward.find(params[:ward_id])
   end
 
   # POST /activities

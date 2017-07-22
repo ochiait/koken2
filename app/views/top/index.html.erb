@@ -13,9 +13,8 @@
          <% @wards.each do |ward| %>
            <tr>
              <td>
-             <%= form.check_box :ward %>
+             <%= form.radio_button :ward_id, ward.id %>
              <%= form.label_tag :ward, ward.name %>
-             <%= form.hidden_field :ward_id, value:ward.id %>
            </td>
          </tr>
        <% end %>
