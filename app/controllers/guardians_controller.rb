@@ -1,6 +1,6 @@
 class GuardiansController < ApplicationController
   before_action :set_guardian, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_guardian!, only: [:edit, :update, :destroy]
+  skip_before_action :authenticate_guardian!, only: [:show, :new, :create]
   # GET /guardians/1
   # GET /guardians/1.json
   def show

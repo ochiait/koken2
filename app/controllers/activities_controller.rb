@@ -1,7 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:edit, :update, :destroy]
-  before_action :authenticate_guardian!
-
+  
   # GET /activities
   # GET /activities.json
   def index
