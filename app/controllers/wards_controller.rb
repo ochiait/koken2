@@ -1,6 +1,5 @@
 class WardsController < ApplicationController
   before_action :set_ward, only: [:edit, :update, :destroy]
-  skip_before_action :authenticate_guardian!
 
   # GET /wards
   # GET /wards.json

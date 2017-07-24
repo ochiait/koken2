@@ -1,6 +1,5 @@
 class FamiliesController < ApplicationController
   before_action :set_family, only: [:edit, :update, :destroy]
-  skip_before_action :authenticate_guardian!
 
   # GET /families/new
   def new
