@@ -5,10 +5,10 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     if params[:ward_id]
-      @activities = Activity.where(ward_id: params[:ward_id])
+      @activities = Activity.where(ward_id: params[:ward_id]).oneyear
       @ward = Ward.find(params[:ward_id])
     else
-      @activities = Activity.all
+      @activities = Activity.oneyear
     end
   end
 
