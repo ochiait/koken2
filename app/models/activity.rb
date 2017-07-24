@@ -20,6 +20,7 @@ class Activity < ApplicationRecord
   belongs_to :ward
   has_many :visits
   has_many :contents, through: :visits
+  scope :oneyear, -> { where('created_at > ?', 1.years.ago) }
 
   def create_with_visit(visit,content_id)
    ActiveRecord::Base.transaction do
