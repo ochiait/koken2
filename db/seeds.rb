@@ -33,7 +33,7 @@ Guardian.create!(
 	url:'http://about.kokennin.com/'
 )
 
-Ward.create(name:"後見人 太郎", address:"東京都世田谷区1-2-3", tel:"03-1234-5678", sex:1, guardian_id:1)
+Ward.create(name:"後見人 太郎", address:"東京都世田谷区1-2-3", tel:"03-1234-5678", sex:1, guardian_id:2)
 Ward.create(name:"山田 太郎", address:"埼玉県さいたま区1-2-3", tel:"03-1234-5678", sex:1, guardian_id:1)
 Ward.create(name:"佐藤 花子", address:"千葉県中央区1-2-3", tel:"03-1234-5678", sex:2, guardian_id:1)
 Ward.create(name:"竹田 よつこ", address:"茨城県中区1-2-3", tel:"03-1234-5678", sex:2, guardian_id:1)

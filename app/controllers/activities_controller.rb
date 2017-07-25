@@ -4,24 +4,32 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.oneyear
+    if params[:ward_id]
+      @activities = Activity.where(ward_id: params[:ward_id]).oneyear
+      @ward = Ward.find(params[:ward_id])
+    else
+      @activities = Activity.oneyear
+    end
   end
 
   # GET /activities/new
   def new
     @activity = Activity.new
     @contents = Content.all
+    @ward = Ward.find(params[:ward_id])
+    return redirect_to activities_path(ward_id: params[:ward_id]) if params[:history]
   end
 
   # GET /activities/1/edit
   def edit
+    @ward = Ward.find(params[:ward_id])
   end
 
   # POST /activities
   # POST /activities.json
 
   def create
-    　# activity_paramsの中身はハッシュ{:content, :memo, :comment, :photo, :photo_cache, :ward_id}
+      # activity_paramsの中身はハッシュ{:content, :memo, :comment, :photo, :photo_cache, :ward_id}
       @activity = Activity.new(activity_params)
       @visit = Visit.new
       # current_guardianはヘルパーメソッドで定義されている。hoge.name の時の hoge は引数ではなくレシーバという。
