@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+  - 2.4.1
+services:
+  - postgresql
+
+bundler_args: "--without development --deployment"
+
+cache: bundler
+
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - bundle exec rails db:create
+  - bundle exec rails db:migrate
