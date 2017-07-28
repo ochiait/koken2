@@ -13,4 +13,8 @@ before_script:
   - bundle exec rails db:create
   - bundle exec rails db:migrate
 
-script: "bundle exec rake test:$TEST_SUITE"
+env:
+  - TEST_SUITE=controllers
+  - TEST_SUITE=models
+
+script: "bundle exec rails spec:$TEST_SUITE"
