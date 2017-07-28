@@ -12,3 +12,5 @@ before_script:
   - cp config/database.yml.travis config/database.yml
   - bundle exec rails db:create
   - bundle exec rails db:migrate
+
+script: "bundle exec rails spec:$TEST_SUITE"
