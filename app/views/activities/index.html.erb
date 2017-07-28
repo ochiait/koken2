@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= "#{@ward.name}さんの履歴" %></h1>
+<h1><%= "#{@wards.name}さんの履歴" %></h1>
 
 <table>
   <thead>
@@ -14,9 +14,9 @@
   </thead>
 
   <tbody>
-    <% @activities.each do |activity| %>
+    <% @activities.zip(@contents).each do |activity, content| %>
       <tr>
-        <td><%= activity.content %></td>
+        <td><%= content.name %></td>
         <td><%= activity.memo %></td>
         <td><%= activity.comment %></td>
         <td><%= image_tag(activity.photo) %></td>
