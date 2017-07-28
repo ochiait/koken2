@@ -13,8 +13,4 @@ before_script:
   - cp config/database.yml.travis config/database.yml
   - bundle exec rails db:migrate RAILS_ENV=test
 
-env:
-  - TEST_SUITE=controllers
-  - TEST_SUITE=models
-
 script: "bundle exec rails spec:$TEST_SUITE"
