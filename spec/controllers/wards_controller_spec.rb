@@ -23,7 +23,7 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe WardsController, type: :controller do
+RSpec.describe WardsController, type: :controller ,skipped_usual: true do
 
   # This should return the minimal set of attributes required to create a valid
   # Ward. As you add validations to Ward, be sure to
