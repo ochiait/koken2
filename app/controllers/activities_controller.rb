@@ -37,6 +37,12 @@ class ActivitiesController < ApplicationController
       # current_guardianはヘルパーメソッドで定義されている。hoge.name の時の hoge は引数ではなくレシーバという。
       @activity.guardian_id = current_guardian.id
       @activity.create_with_visit(@visit,params[:content_id])
+      #meeting_at(日時)保存
+      @activity.meeting_at = Time.zone.local(
+        activity_params["meeting_at(1i)"].to_i,
+        activity_params["meeting_at(2i)"].to_i,
+        activity_params["meeting_at(3i)"].to_i
+        )
 
       respond_to do |format|
         if @activity.persisted?
@@ -82,7 +88,8 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:content, :memo, :comment, :photo, :photo_cache, :ward_id)
+      params.require(:activity).permit(:content, :memo, :comment, :photo, :photo_cache, :ward_id,
+      :"meeting_at(1i)", :"meeting_at(2i)", :"meeting_at(3i)")
     end
 
 end
