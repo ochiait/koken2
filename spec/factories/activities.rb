@@ -3,6 +3,7 @@
 # Table name: activities
 #
 #  id          :integer          not null, primary key
+#  content     :string
 #  memo        :string
 #  comment     :string
 #  photo       :string
