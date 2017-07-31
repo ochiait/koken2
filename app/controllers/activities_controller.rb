@@ -7,8 +7,8 @@ class ActivitiesController < ApplicationController
     if params[:ward_id]
       @activities = Activity.where(ward_id: params[:ward_id]).oneyear
       @wards = Ward.find(params[:ward_id])
-      @visits = Visit.where(activity_id: @activities[:id])
-      @contents = Content.find(@visits[:content_id])
+      # @visits = Visit.where(activity_id: @activities[:id])
+      # @contents = Content.find(@visits[:content_id])
     else
       @activities = Activity.oneyear
     end
