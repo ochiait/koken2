@@ -13,7 +13,7 @@
          <% @wards.each do |ward| %>
            <tr>
              <td>
-             <%= form.radio_button :ward_id, ward.id %>
+             <%= form.radio_button :ward_id, ward.id, checked: "checked" %>
              <%= form.label_tag :ward, ward.name %>
            </td>
          </tr>
