@@ -7,8 +7,6 @@ class ActivitiesController < ApplicationController
     if params[:ward_id]
       @activities = Activity.where(ward_id: params[:ward_id]).oneyear
       @wards = Ward.find(params[:ward_id])
-      # @visits = Visit.where(activity_id: @activities[:id])
-      # @contents = Content.find(@visits[:content_id])
     else
       @activities = Activity.oneyear
     end
@@ -31,18 +29,12 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
 
   def create
-      # activity_paramsの中身はハッシュ{:content, :memo, :comment, :photo, :photo_cache, :ward_id}
+      # activity_paramsの中身はハッシュ{:content, :memo, :comment, :photo, :photo_cache, :ward_id, :meeting_at}
       @activity = Activity.new(activity_params)
       @visit = Visit.new
       # current_guardianはヘルパーメソッドで定義されている。hoge.name の時の hoge は引数ではなくレシーバという。
       @activity.guardian_id = current_guardian.id
       @activity.create_with_visit(@visit,params[:content_id])
-      #meeting_at(日時)保存
-      @activity.meeting_at = Time.zone.local(
-        activity_params["meeting_at(1i)"].to_i,
-        activity_params["meeting_at(2i)"].to_i,
-        activity_params["meeting_at(3i)"].to_i
-        )
 
       respond_to do |format|
         if @activity.persisted?
@@ -88,8 +80,7 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:content, :memo, :comment, :photo, :photo_cache, :ward_id,
-      :"meeting_at(1i)", :"meeting_at(2i)", :"meeting_at(3i)")
+      params.require(:activity).permit(:content, :memo, :comment, :photo, :photo_cache, :ward_id, :meeting_at)
     end
 
 end

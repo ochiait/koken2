@@ -11,7 +11,7 @@
 #  updated_at  :datetime         not null
 #  guardian_id :integer
 #  ward_id     :integer
-#  meetng_at   :datetime
+#  meeting_at  :datetime
 #
 
 FactoryGirl.define do
