@@ -1,3 +1,15 @@
+# 本番環境
+http://kokennin.com/
+
+# デモ環境
+http://demo.kokennin.com/
+
+# テスト環境
+http://test1.kokennin.com/
+
+# Travis CI
+https://travis-ci.com/ochiait/koken2
+
 # 紹介ページ
 http://about.kokennin.com/
 
