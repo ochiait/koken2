@@ -32,8 +32,8 @@ module Koken2
     end
     # タイムゾーンを東京(JST +9:00)に設定
     config.time_zone = 'Tokyo'
-    # mail文中のリンクのdefault_urlを設定
-    config.action_mailer.default_url_options = { host: 'localhost:3000' }
+    # mail文中のリンクのdefault_urlを設定(環境変数DEFAULT_HOSTがなければ、localhost:3000）
+    config.action_mailer.default_url_options = { host: ENV.fetch("DEFAULT_HOST") { "localhost:3000" }}
     # 日本語化
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     config.i18n.default_locale = :ja

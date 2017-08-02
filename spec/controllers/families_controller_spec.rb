@@ -23,7 +23,7 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
-RSpec.describe FamiliesController, type: :controller do
+RSpec.describe FamiliesController, type: :controller,skipped_usual: true do
 
   # This should return the minimal set of attributes required to create a valid
   # Family. As you add validations to Family, be sure to
