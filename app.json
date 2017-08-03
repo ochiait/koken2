@@ -1,5 +1,6 @@
 {
   "name": "koken2",
+  "description": "pipeline test",
   "scripts": {
     "postdeploy": "bundle exec rails db:schema:load db:seed"
   },
