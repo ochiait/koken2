@@ -15,7 +15,7 @@ Content.create!(body: '通帳記帳')
 Content.create!(body: '支払い処理')
 Content.create!(body: 'その他')
 
-Guardian.create!(
+guardian = Guardian.new(
 	email:'tanaka@hogehoge.com',
 	password:123456,
 	company_name:'田中行政書士事務所',
@@ -32,6 +32,8 @@ Guardian.create!(
 	mobile:'090-3456-3567',
 	url:'http://about.kokennin.com/'
 )
+guardian.skip_confirmation!
+guardian.save
 
 Ward.create(name:"後見人 太郎", address:"東京都世田谷区1-2-3", tel:"03-1234-5678", sex:1, guardian_id:2)
 Ward.create(name:"山田 太郎", address:"埼玉県さいたま区1-2-3", tel:"03-1234-5678", sex:1, guardian_id:1)

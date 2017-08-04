@@ -2,7 +2,7 @@
   "name": "koken2",
   "description": "pipeline test",
   "scripts": {
-    "postdeploy": "bundle exec rails db:migrate"
+    "postdeploy": "bundle exec rails db:schema:load db:seed"
   },
   "env": {
     "DEFAULT_HOST": {
