@@ -19,7 +19,7 @@
     <ul>
     <% @contents.each do |content| %>
       <li>
-        <%= radio_button_tag(:content_id, content.id) %>
+        <%= radio_button_tag(:content_id, content.id, checked: "checked") %>
         <%= label_tag(:activity_content, content.body) %>
       </li>
     <% end %>

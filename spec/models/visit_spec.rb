@@ -3,8 +3,8 @@
 # Table name: visits
 #
 #  id          :integer          not null, primary key
-#  activity_id :integer
-#  content_id  :integer
+#  activity_id :integer          not null
+#  content_id  :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

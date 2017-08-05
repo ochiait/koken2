@@ -22,14 +22,15 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/1/edit
   def edit
-    @ward = Ward.find(params[:ward_id])
+    @contents = Content.all
+    @ward = Ward.find(@activity.ward_id)
   end
 
   # POST /activities
   # POST /activities.json
 
   def create
-      # activity_paramsの中身はハッシュ{:content, :memo, :comment, :photo, :photo_cache, :ward_id, :meeting_at}
+      # activity_paramsの中身はハッシュ{:memo, :comment, :photo, :photo_cache, :ward_id, :meeting_at}
       @activity = Activity.new(activity_params)
       @visit = Visit.new
       # current_guardianはヘルパーメソッドで定義されている。hoge.name の時の hoge は引数ではなくレシーバという。
@@ -65,9 +66,10 @@ class ActivitiesController < ApplicationController
   # DELETE /activities/1
   # DELETE /activities/1.json
   def destroy
+    @wards = Ward.find(@activity.ward_id)
     @activity.destroy
     respond_to do |format|
-      format.html { redirect_to activities_url, notice: 'Activity was successfully destroyed.' }
+      format.html { redirect_to activities_url(ward_id: @wards.id), notice: 'Activity was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -80,7 +82,7 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:content, :memo, :comment, :photo, :photo_cache, :ward_id, :meeting_at)
+      params.require(:activity).permit(:memo, :comment, :photo, :photo_cache, :ward_id, :meeting_at)
     end
 
 end
