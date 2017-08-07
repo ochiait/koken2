@@ -14,9 +14,9 @@ class ApplicationController < ActionController::Base
   end
 
 	#httpからhttpsへリダイレクト
-	def activate_ssl
-		if (Rails.env.production?) && !(request.ssl?)
-		redirect_to :protocol => "https://", :status => :moved_permanently
-		end
-	end
+	# def activate_ssl
+	# 	if (Rails.env.production?) && !(request.ssl?)
+	# 	redirect_to :protocol => "https://", :status => :moved_permanently
+	# 	end
+	# end
 end
