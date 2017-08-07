@@ -54,6 +54,7 @@ class ActivitiesController < ApplicationController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
+        @activity.visits.first.update(content_id: params[:content_id])
         format.html { redirect_to root_path, notice: 'Activity was successfully updated.' }
         format.json { render :show, status: :ok, location: @activity }
       else
