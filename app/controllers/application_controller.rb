@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   # xxx.herokuapp.comへアクセスが来たら正しいURLへリダイレクト
   def ensure_domain
-    unless /koken-production.herokuapp.com/ =~ request.host
+    unless /\.herokuapp.com/ =~ request.host
       return
     end
     unless [80, 443].include?(request.port)
