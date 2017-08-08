@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     redirect_to "#{request.protocol}www.kokennin.com#{port}#{request.fullpath}", status: :moved_permanently
   end
 
-	httpからhttpsへリダイレクト
+	# httpからhttpsへリダイレクト
 	def activate_ssl
 		if (Rails.env.production?) && !(request.ssl?)
 		redirect_to :protocol => "https://", :status => :moved_permanently
