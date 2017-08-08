@@ -4,19 +4,19 @@ class ApplicationController < ActionController::Base
 
   # xxx.herokuapp.comへアクセスが来たら正しいURLへリダイレクト
   def ensure_domain
-    unless /\.herokuapp.com/ =~ request.host
+    unless /koken-production.herokuapp.com/ =~ request.host
       return
     end
     unless [80, 443].include?(request.port)
       port = ":#{request.port}"
     end
-    redirect_to "#{request.protocol}kokennin.com#{port}#{request.fullpath}", status: :moved_permanently
+    redirect_to "#{request.protocol}www.kokennin.com#{port}#{request.fullpath}", status: :moved_permanently
   end
 
-	#httpからhttpsへリダイレクト
-	# def activate_ssl
-	# 	if (Rails.env.production?) && !(request.ssl?)
-	# 	redirect_to :protocol => "https://", :status => :moved_permanently
-	# 	end
-	# end
+	httpからhttpsへリダイレクト
+	def activate_ssl
+		if (Rails.env.production?) && !(request.ssl?)
+		redirect_to :protocol => "https://", :status => :moved_permanently
+		end
+	end
 end
