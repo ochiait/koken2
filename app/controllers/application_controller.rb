@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     unless [80, 443].include?(request.port)
       port = ":#{request.port}"
     end
-    redirect_to "#{request.protocol}www.kokennin.com#{port}#{request.fullpath}", status: :moved_permanently
+    redirect_to "#{request.protocol}kokennin.com#{port}#{request.fullpath}", status: :moved_permanently
   end
 
 	# httpからhttpsへリダイレクト
