@@ -11,7 +11,7 @@ http://demo.kokennin.com/
 https://travis-ci.com/ochiait/koken2
 
 # 紹介ページ
-httpｓ://about.kokennin.com/
+https://about.kokennin.com/
 
 # 画面一覧
 
