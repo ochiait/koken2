@@ -1,5 +1,5 @@
 # 本番環境
-http://kokennin.com/
+https://kokennin.com/
 
 # ステージング環境
 http://staging.kokennin.com/
@@ -11,7 +11,7 @@ http://demo.kokennin.com/
 https://travis-ci.com/ochiait/koken2
 
 # 紹介ページ
-http://about.kokennin.com/
+httpｓ://about.kokennin.com/
 
 # 画面一覧
 
