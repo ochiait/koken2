@@ -24,6 +24,7 @@ class ActivitiesController < ApplicationController
   def edit
     @contents = Content.all
     @ward = Ward.find(@activity.ward_id)
+    @content_id = @activity.visits.first.content_id
   end
 
   # POST /activities
