@@ -22,7 +22,12 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/1/edit
   def edit
+    @contents = Content.all
+    if params[:ward_id]
     @ward = Ward.find(params[:ward_id])
+    else
+    @ward = @activity.ward
+    end
   end
 
   # POST /activities
@@ -38,8 +43,8 @@ class ActivitiesController < ApplicationController
 
       respond_to do |format|
         if @activity.persisted?
-          format.html { redirect_to root_path, notice: 'Activity was successfully created.' }
-          format.json { render :show, status: :created, location: @activity }
+          format.html { redirect_to activities_mail_path(@activity.id), notice: 'Activity was successfully created.' }
+          format.json { render :email, status: :created, location: @activity }
         else
           @contents = Content.all
           format.html { render :new }
@@ -70,6 +75,12 @@ class ActivitiesController < ApplicationController
       format.html { redirect_to activities_url, notice: 'Activity was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def send_mail
+      @activity = Activity.find(params[:id])
+      @ward = @activity.ward
+      ActivityMailer.activity_email(family, activity).deliver
   end
 
   private
