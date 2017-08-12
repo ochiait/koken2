@@ -45,8 +45,8 @@ class ActivitiesController < ApplicationController
 
       respond_to do |format|
         if @activity.persisted?
-          format.html { redirect_to activities_mail_path(@activity.id), notice: 'Activity was successfully created.' }
-          format.json { render :email, status: :created, location: @activity }
+          format.html { redirect_to confirm_email_activity_path(@activity.id), notice: 'Activity was successfully created.' }
+          format.json { render :confirm_email, status: :created, location: @activity }
         else
           @contents = Content.all
           format.html { render :new }
@@ -81,12 +81,12 @@ class ActivitiesController < ApplicationController
     end
   end
 
-  def mail
+  def confirm_email
       @activity = Activity.find(params[:id])
       @ward = @activity.ward
   end
 
-  def send_mail
+  def send_email
       ActivityMailer.activity_email(family, activity).deliver
   end
 

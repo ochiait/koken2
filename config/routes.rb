@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   root 'top#index'
   resources :contents, :except => [:show]
-  resources :activities, :except => [:show]
-  get "activities/:id/mail" => "activities#mail", as: 'activities_mail'
+  resources :activities, :except => [:show] do
+  # 下記は右と同じ　get "activities/:id/confirm_email" => "activities#confirm_email" ,as:"confirm_email_activity"
+  # :idを入れたくないときはcollectinを使う
+    member do
+      get :confirm_email
+    end
+  end
+
   resources :wards, :except => [:show]
   devise_for :guardians
   resources :guardians, :except => [:index, :new]
