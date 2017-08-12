@@ -3,7 +3,6 @@
 # Table name: activities
 #
 #  id          :integer          not null, primary key
-#  content     :string
 #  memo        :string
 #  comment     :string
 #  photo       :string
@@ -11,7 +10,7 @@
 #  updated_at  :datetime         not null
 #  guardian_id :integer
 #  ward_id     :integer
-#  meetng_at   :datetime
+#  meeting_at  :datetime
 #
 
 require 'rails_helper'

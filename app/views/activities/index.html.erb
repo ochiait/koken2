@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= "#{@ward.name}さんの履歴" %></h1>
+<h1><%= "#{@wards.name}さんの履歴" %></h1>
 
 <table>
   <thead>
@@ -16,7 +16,7 @@
   <tbody>
     <% @activities.each do |activity| %>
       <tr>
-        <td><%= activity.content %></td>
+        <td><%= activity.contents.first.body %></td>
         <td><%= activity.memo %></td>
         <td><%= activity.comment %></td>
         <td><%= image_tag(activity.photo) %></td>
@@ -29,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Activity', new_activity_path %>
+<%= link_to 'New Activity', new_activity_path(ward_id: params[:ward_id]) %>
