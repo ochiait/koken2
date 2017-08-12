@@ -19,7 +19,7 @@
     <ul>
     <% @contents.each do |content| %>
       <li>
-        <% if (@content_id == content.id) || (@content_id == nil) %>
+        <% if (@content_id == content.id) || @activity.new_record? %>
         <%= radio_button_tag(:content_id, content.id, checked: "checked") %>
         <%= label_tag(:activity_content, content.body) %>
         <% else %>
