@@ -12,14 +12,23 @@
   <% end %>
   <%= "#{@ward.name}さん" %>
   <div class="field">
+    <%= form.label :meeting_at %>
+    <%= form.datetime_select :meeting_at, id: :activity_meeting_at %>
+  </div>
+  <div class="field">
     <ul>
     <% @contents.each do |content| %>
       <li>
+        <% if (@content_id == content.id) || @activity.new_record? %>
+        <%= radio_button_tag(:content_id, content.id, checked: "checked") %>
+        <%= label_tag(:activity_content, content.body) %>
+        <% else %>
         <%= radio_button_tag(:content_id, content.id) %>
         <%= label_tag(:activity_content, content.body) %>
+        <% end %>
       </li>
     <% end %>
-  </ul>
+    </ul>
   </div>
 
   <div class="field">
