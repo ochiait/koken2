@@ -7,7 +7,7 @@ class ActivityMailer < ApplicationMailer
  end
 
  def activity_email(family, activity)
-   # @title = post.title
+
    mail to: family.email, subject: "活動報告いたします"
  end
 end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # :idを入れたくないときはcollectinを使う
     member do
       get :confirm_email
+      post :send_email
     end
   end
 

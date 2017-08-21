@@ -15,5 +15,6 @@
 class Ward < ApplicationRecord
   belongs_to :guardian
   has_many :activities
+  has_many :families
   enum sex: { male: 1, female: 2 }
 end

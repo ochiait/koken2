@@ -87,7 +87,11 @@ class ActivitiesController < ApplicationController
   end
 
   def send_email
-      ActivityMailer.activity_email(family, activity).deliver
+      activity = Activity.find(params[:id])
+      families = activity.ward.families
+      families.each do |family|
+        ActivityMailer.activity_email(family, activity).deliver
+      end
   end
 
   private

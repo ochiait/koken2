@@ -2,7 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'ご家族にメール送信する', edit_activity_path(@activity) %><br>
+<%= link_to 'ご家族にメール送信する', send_email_activity_path(@activity), method: :post, data: { confirm: 'Are you sure?' }  %><br>
 <%= link_to '内容を修正する', edit_activity_path(@activity.id,) %><br>
 <%= link_to '終了してTOPに戻る', root_path %>
 
