@@ -137,5 +137,8 @@ RSpec.describe ActivitiesController, type: :controller,skipped_usual: true do
       expect(response).to redirect_to(activities_url)
     end
   end
+end
 
+RSpec.configure do |config|
+  config.include Devise::Test::ControllerHelpers, type: :controller
 end
