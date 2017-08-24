@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'report/index' => "report#index", as:"report"
+
+  get "settings" => "settings#index", as:"settings"
+
   root 'top#index'
   resources :contents, :except => [:show]
   resources :activities, :except => [:show]
