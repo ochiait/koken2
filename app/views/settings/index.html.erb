@@ -1,9 +1,9 @@
 <h1>設定画面</h1>
 
-<div><%= link_to "被後見人の設定", wards_path, method: :get %></div>
-<div><%= link_to "業務内容の登録", contents_path, method: :get %></div>
-<div><%= link_to "報告書" , reports_path, method: :get %></div>
-<div><%= link_to "マイページ", edit_guardian_path(current_guardian.id), method: :get %></div>
-<div><%= link_to "アドレス・パスワード変更", edit_guardian_registration_path, method: :get %></div>
+<div><%= link_to "被後見人の設定", wards_path %></div>
+<div><%= link_to "業務内容の登録", contents_path %></div>
+<div><%= link_to "報告書" , reports_path %></div>
+<div><%= link_to "マイページ", edit_guardian_path(current_guardian.id) %></div>
+<div><%= link_to "アドレス・パスワード変更", edit_guardian_registration_path %></div>
 <br>
 <%= link_to '戻る', :back %>

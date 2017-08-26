@@ -12,23 +12,52 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :guardian_name %>
+    <%= form.label :事務所名 %><br />
+    <%= form.text_field :company_name, id: :company_name %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :guardian_email %>
+    <%= form.label :お名前 %><br />
+    <%= form.text_field :last_name, id: :last_name %>
+    <%= form.text_field :first_name, id: :first_name %>
   </div>
 
   <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password, id: :guardian_password %>
+    <%= form.label :ふりがな %><br />
+    <%= form.text_field :last_name_kana, id: :last_name_kana %>
+    <%= form.text_field :first_name_kana, id: :first_name_kana %>
   </div>
 
   <div class="field">
-    <%= form.label :tel %>
-    <%= form.text_field :tel, id: :guardian_tel %>
+    <%= form.label :郵便番号 %><br />
+    <%= form.text_field :zip, id: :zip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :都道府県 %><br />
+    <%= form.text_field :pref, id: :pref %>
+  </div>
+
+  <div class="field">
+    <%= form.label :住所 %><br />
+    <%= form.text_field :city, id: :city %>
+    <%= form.text_field :addr1, id: :addr1 %>
+    <%= form.text_field :addr2, id: :addr2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :電話番号 %><br />
+    <%= form.text_field :tel, id: :tel %>
+  </div>
+
+  <div class="field">
+    <%= form.label :携帯番号 %><br />
+    <%= form.text_field :mobile, id: :mobile %>
+  </div>
+
+  <div class="field">
+    <%= form.label :URL %><br />
+    <%= form.text_field :url, id: :url %>
   </div>
 
   <div class="actions">
