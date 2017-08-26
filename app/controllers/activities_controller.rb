@@ -23,8 +23,13 @@ class ActivitiesController < ApplicationController
   # GET /activities/1/edit
   def edit
     @contents = Content.all
-    @ward = Ward.find(@activity.ward_id)
     @content_id = @activity.visits.first.content_id
+
+    if params[:ward_id]
+      @ward = Ward.find(params[:ward_id])
+    else
+      @ward = @activity.ward
+    end
   end
 
   # POST /activities
@@ -40,8 +45,8 @@ class ActivitiesController < ApplicationController
 
       respond_to do |format|
         if @activity.persisted?
-          format.html { redirect_to root_path, notice: 'Activity was successfully created.' }
-          format.json { render :show, status: :created, location: @activity }
+          format.html { redirect_to confirm_email_activity_path(@activity.id), notice: 'Activity was successfully created.' }
+          format.json { render :confirm_email, status: :created, location: @activity }
         else
           @contents = Content.all
           format.html { render :new }
@@ -74,6 +79,19 @@ class ActivitiesController < ApplicationController
       format.html { redirect_to activities_url(ward_id: @wards.id), notice: 'Activity was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def confirm_email
+      @activity = Activity.find(params[:id])
+      @ward = @activity.ward
+  end
+
+  def send_email
+      activity = Activity.find(params[:id])
+      families = activity.ward.families
+      families.each do |family|
+        ActivityMailer.activity_email(family, activity).deliver
+      end
   end
 
   private

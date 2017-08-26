@@ -5,4 +5,9 @@ class ActivityMailer < ApplicationMailer
    @url  = 'http://example.com/login'
    mail(to: "abc@hogehoge.com", subject: 'Welcome to My Awesome Site')
  end
+
+ def activity_email(family, activity)
+
+   mail to: family.email, subject: "活動報告いたします"
+ end
 end

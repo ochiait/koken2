@@ -7,7 +7,15 @@ Rails.application.routes.draw do
   resources :reports, :only => [:index]
   resources :settings, :only => [:index]
   resources :contents, :except => [:show]
-  resources :activities, :except => [:show]
+  resources :activities, :except => [:show] do
+  # 下記は右と同じ　get "activities/:id/confirm_email" => "activities#confirm_email" ,as:"confirm_email_activity"
+  # :idを入れたくないときはcollectinを使う
+    member do
+      get :confirm_email
+      post :send_email
+    end
+  end
+
   resources :wards, :except => [:show]
   resources :guardians, :except => [:index, :new]
   if Rails.env.development?
