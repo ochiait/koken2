@@ -138,7 +138,3 @@ RSpec.describe ActivitiesController, type: :controller,skipped_usual: true do
     end
   end
 end
-
-RSpec.configure do |config|
-  config.include Devise::Test::ControllerHelpers, type: :controller
-end

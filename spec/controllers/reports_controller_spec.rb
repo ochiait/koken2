@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ReportController, type: :controller do
+RSpec.describe ReportsController, type: :controller,skipped_usual: true do
 
   describe "GET #index" do
     it "returns http success" do

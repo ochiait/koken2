@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SettingsController, type: :controller do
+RSpec.describe SettingsController, type: :controller,skipped_usual: true do
 
   describe "GET #index" do
     it "returns http success" do

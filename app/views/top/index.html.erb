@@ -21,5 +21,8 @@
        </div>
      </tbody>
    </table>
-   <%= link_to '設定', settings_path%>
+   <%= link_to '設定', settings_path %>
+    <% if guardian_signed_in? %>
+    <p><%= link_to "ログアウト", destroy_guardian_session_path, method: :delete %></p>
+    <% end %>
 <% end %>

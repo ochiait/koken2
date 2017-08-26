@@ -93,7 +93,5 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-  RSpec.configure do |c|
-    c.filter_run_excluding skipped_usual: true
-  end
+  config.filter_run_excluding skipped_usual: true
 end
