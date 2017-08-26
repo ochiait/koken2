@@ -34,8 +34,8 @@ class GuardiansController < ApplicationController
   # PATCH/PUT /guardians/1.json
   def update
     respond_to do |format|
-      if @guardian.update(guardian_params)
-        format.html { redirect_to @guardian, notice: 'Guardian was successfully updated.' }
+      if @guardian.update_without_password(guardian_params)
+        format.html { redirect_to settings_path, notice: 'Guardian was successfully updated.' }
         format.json { render :show, status: :ok, location: @guardian }
       else
         format.html { render :edit }
@@ -62,6 +62,6 @@ class GuardiansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guardian_params
-      params.require(:guardian).permit(:email, :password, :company_name, :last_name, :first_name, :last_name_kana, :first_name_kana, :zip, :pref, :city, :addr1, :addr2, :tel, :mobile, :url)
+      params.require(:guardian).permit(:company_name, :last_name, :first_name, :last_name_kana, :first_name_kana, :zip, :pref, :city, :addr1, :addr2, :tel, :mobile, :url)
     end
 end
