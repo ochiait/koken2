@@ -1,0 +1,26 @@
+<h1>成年被後見人<%=	@ward.name %>　氏　業務日誌</h1>
+<p>期間：</p>
+<p>成年後見人：<%= current_guardian.last_name + current_guardian.first_name%></p>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>日付</th>
+      <th>場所</th>
+      <th>業務内容</th>
+      <th>備考</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @activities.zip(@contents).each do |activity, content| %>
+      <tr>
+        <td><%= activity.meeting_at.strftime('%Y年%m月%d日') %></td>
+        <td>豊橋市</td>
+        <td><%= content.body + activity.memo %></td>
+        <td><%= activity.comment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back', :back %>

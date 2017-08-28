@@ -1,0 +1,32 @@
+<%= form_with url: new_activity_path, method: :get, local: true do |form| %>
+
+  <% if params[:controller] == "top"%>
+    <%= submit_tag "記録する" %>
+    <%= submit_tag "履歴を見る", name: "history" %>
+  <% elsif params[:controller] == "reports"%>
+    <%= submit_tag "報告書画面へ", name: "report" %>
+    <p>出力対象を選択してください</p>
+  <% end %>
+
+  <table>
+   <thead>
+     <tr>
+       <th>被後見人一覧</th>
+     </tr>
+   </thead>
+
+   <tbody>
+     <div class="field">
+       <% @wards.each do |ward| %>
+         <tr>
+           <td>
+           <%= form.radio_button :ward_id, ward.id, checked: "checked" %>
+           <%= form.label_tag :ward, ward.name %>
+         </td>
+       </tr>
+     <% end %>
+     </div>
+   </tbody>
+  </table>
+
+<% end %>

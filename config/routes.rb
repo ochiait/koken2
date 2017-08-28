@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :guardians
 
-  resources :reports, :only => [:index]
+  resources :reports, :only => [:index, :show]
   resources :settings, :only => [:index]
   resources :contents, :except => [:show]
   resources :activities, :except => [:show]
