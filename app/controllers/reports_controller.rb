@@ -5,8 +5,7 @@ class ReportsController < ApplicationController
    @activities = @ward.activities
   end
 
-	def selection
-		@wards = current_guardian.wards
-	end
-
+  def selection
+  	@wards = current_guardian.wards
+  end
 end
