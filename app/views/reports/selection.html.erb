@@ -1,7 +1,8 @@
-<%= form_with url: new_activity_path, method: :get, local: true do |form| %>
+<h1>報告書</h1>
 
-  <%= submit_tag "記録する" %>
-  <%= submit_tag "履歴を見る", name: "history" %>
+<%= form_with url: reports_path, method: :get, local: true do |form| %>
+  <%= submit_tag "報告書画面へ", name: "report" %>
+  <p>出力対象を選択してください</p>
 
   <table>
    <thead>
@@ -26,9 +27,5 @@
 
 <% end %>
 
-<%= link_to '設定', settings_path %>
-<% if guardian_signed_in? %>
-<p><%= link_to "ログアウト", destroy_guardian_session_path, method: :delete %></p>
-<% end %>
-
-
+<%= link_to '戻る', :back %>
+<%= link_to 'TOP', :root %>

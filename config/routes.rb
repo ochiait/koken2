@@ -4,12 +4,18 @@ Rails.application.routes.draw do
 
   devise_for :guardians
 
-  resources :reports, :only => [:index]
   resources :settings, :only => [:index]
   resources :contents, :except => [:show]
   resources :activities, :except => [:show]
-  resources :wards, :except => [:show]
   resources :guardians, :except => [:index, :new]
+  resources :wards, :except => [:show]
+
+  resources :reports, :only => [:index] do
+    collection do
+      get 'selection'
+    end
+  end
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
