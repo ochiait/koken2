@@ -41,4 +41,17 @@ class Guardian < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :wards
   has_many :activities
+  after_save :create_guardian_content
+
+  private
+
+	  def create_guardian_content
+	  	@contents = Content.where(status:0)
+	  	@contents.each do |content|
+	  	GuardianContent.create!(
+	  		guardian_id: id,
+	  		content_id: content.id
+	  		)
+	  	end
+	  end
 end

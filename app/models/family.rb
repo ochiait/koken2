@@ -8,6 +8,7 @@
 #  tel        :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  ward_id    :integer
 #
 
 class Family < ApplicationRecord
