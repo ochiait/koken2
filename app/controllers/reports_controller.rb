@@ -1,10 +1,8 @@
 class ReportsController < ApplicationController
 
   def index
-   @ward = Ward.find(params[:id])
+   @ward = Ward.find(params[:ward_id])
    @activities = @ward.activities
-   @visits = Visit.where(activity_id: @activities)
-   @contents = Content.where(id: @visits)
   end
 
 	def selection

@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   resources :contents, :except => [:show]
   resources :activities, :except => [:show]
   resources :guardians, :except => [:index, :new]
-  resources :reports, :only => [:selection]
+  resources :wards, :except => [:show]
 
-  resources :wards, :except => [:show] do
-    resources :reports, :only => [:index]
+  resources :reports, :only => [:index] do
+    collection do
+      get 'selection'
+    end
   end
 
   if Rails.env.development?
