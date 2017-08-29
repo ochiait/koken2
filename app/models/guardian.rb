@@ -42,13 +42,13 @@ class Guardian < ApplicationRecord
   has_many :wards
   has_many :activities
 
-  private
+  # private
 
-	  def create_guardian_content
-	  	Guardian_content.create!(
-	  		guardian_id: current_guardian.id,
-	  		content_id: 0
-	  		)
-	  		.where(content.status:0)
-	  end
+	 #  def create_guardian_content
+	 #  	Guardian_content.create!(
+	 #  		guardian_id: current_guardian.id,
+	 #  		content_id: 0
+	 #  		)
+	 #  		.where(content.status:0)
+	 #  end
 end
