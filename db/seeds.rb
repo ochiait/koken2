@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #coding: utf-8
-Content.create!(body: '自宅で本人に面会')
-Content.create!(body: '施設で本人に面会')
-Content.create!(body: '施設で本人に面会')
-Content.create!(body: '自宅の確認')
-Content.create!(body: '通帳記帳')
-Content.create!(body: '支払い処理')
-Content.create!(body: 'その他')
+Content.create!(body: '自宅で本人に面会', status: 0)
+Content.create!(body: '施設で本人に面会', status: 0)
+Content.create!(body: '施設で本人に面会', status: 0)
+Content.create!(body: '自宅の確認', status: 0)
+Content.create!(body: '通帳記帳', status: 0)
+Content.create!(body: '支払い処理', status: 0)
+Content.create!(body: 'その他', status: 0)
 
 guardian = Guardian.new(
 	email:'tanaka@hogehoge.com',
