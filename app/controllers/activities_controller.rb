@@ -18,7 +18,6 @@ class ActivitiesController < ApplicationController
     @contents = Content.all
     @ward = Ward.find(params[:ward_id])
     return redirect_to activities_path(ward_id: params[:ward_id]) if params[:history]
-    return redirect_to report_path(params[:ward_id]) if params[:report]
   end
 
   # GET /activities/1/edit
